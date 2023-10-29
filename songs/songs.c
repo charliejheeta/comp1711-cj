@@ -61,6 +61,11 @@ void tokeniseRecord(const char *input, const char *delimiter,
 
 int main()
 {
+    fitness_data steps[200];
+    int buffer_size = 250;
+    char line{}
+    
+    
     SONG_DATA songs[100];
     int buffer_size = 250;
     char line[buffer_size];
