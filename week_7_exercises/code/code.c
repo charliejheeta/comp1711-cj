@@ -11,9 +11,7 @@ int main()
     // get filename from the user
     printf("Please enter the name of the data file: ");
 
-    // these lines read in a line from the stdin (where the user types)
-    // and then takes the actual string out of it
-    // this removes any spaces or newlines.
+    // read in a line from the stdin (where the user types) --> extract string --> remove spaces and newlines
     fgets(line, buffer_size, stdin);
     sscanf(line, " %s ", filename);
 
@@ -21,15 +19,14 @@ int main()
     int counter = 0;
     float mean = 0;
 
-    while (1)
+    FILE *input = fopen(filename, "r");
+    if (!input)
     {
-        FILE *input = fopen(filename, "r");
-        if (!input)
-        {
-            printf("Error: File could not be opened\n");
-            return 1;
-        }
+        printf("Error: File could not be opened\n");
+        return 1;
+    }
 
+    while(1) {
         printf("A: View all your blood iron levels\n");                       // BRONZE
         printf("B: View your average blood iron level\n");                    // BRONZE
         printf("C: View your lowest blood iron level\n");                     // SILVER
